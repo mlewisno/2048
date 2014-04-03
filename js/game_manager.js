@@ -77,75 +77,44 @@ GameManager.prototype.addRandomTile = function () {
     //Generates a probability distribution based on the input of the difficulty slider (var diff)
     
     diffpow = Math.pow(2, diff);
-    var wtf = [];
+    var powers = [];
     for (var i = 1; i <= diff; i++) {
-      wtf.push(1 - (1 / (Math.exp(2, i))));
+      powers.push(1 - (1 / (Math.exp(2, i))));
     }
     for (i; i <= 9; i++) {
-      wtf.push(0);
+      powers.push(0);
     }
-    //fuck everything, including the empty set
-    if (value <= wtf[0]) {
+
+    if (value <= powers[0]) {
       value = 2;
     }
-    if (value <= wtf[1]) {
+    if (value <= powers[1]) {
       value = 4;
     }
-    if (value <= wtf[2]) {
+    if (value <= powers[2]) {
       value = 8;
     }
-    if (value <= wtf[3]) {
+    if (value <= powers[3]) {
       value = 16;
     }
-    if (value <= wtf[4]) {
+    if (value <= powers[4]) {
       value = 32;
     }
-    if (value <= wtf[5]) {
+    if (value <= powers[5]) {
       value = 64;
     }
-    if (value <= wtf[6]) {
+    if (value <= powers[6]) {
       value = 128;
     }
-    if (value <= wtf[7]) {
+    if (value <= powers[7]) {
       value = 256;
     }
-    if (value <= wtf[8]) {
+    if (value <= powers[8]) {
       value = 512;
     }
     else {
       value = Math.pow(2, diff);
     }
-    
-    /*if(value < .5){
-      value = 2;
-    }
-    else if(value < 0.75){
-      value = 4;
-    }
-    else if(value < 0.875){
-      value = 8;
-    }*/
-    /*
-    else if(value < 0.9375){
-      value = 16;
-    }
-    else if(value < 0.96875){
-      value = 32;
-    }
-    else if(value < 0.984375){
-      value = 64;
-    }
-    else if(value < 0.9921875){
-      value = 128;
-    }
-    else if(value < 0.99609375){
-      value = 256;
-    }
-    */
-    
-    /*else{
-      value = 8;
-    }*/
     
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
